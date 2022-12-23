@@ -1,0 +1,40 @@
+@import './colors.scss';
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    background-color: $yellow_weak;
+}
+
+h1, h2, h3, h4, h5, h6, label {
+    color: $blue;
+    font-family: 'Fredoka One', cursive;
+}
+
+p, a {
+    font-family: 'Roboto', sans-serif;
+}
+
+p {
+    color: black;
+}
+
+a {
+    color: $red;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: $yellow_weak;
+}
+
+::-webkit-scrollbar-thumb {
+	background: $green;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: $yellow_strong;
+}

@@ -1,0 +1,17 @@
+@import '../../assets/sass/colors.scss';
+
+.image-block {
+    padding: 5px;
+    border: 3px solid $blue;
+    position: relative;
+    cursor: pointer;
+    margin: 20px auto;
+
+    i {
+        position: absolute;
+        left: 30px;
+        top: 30px;
+        color: $blue;
+        text-shadow: 0 0 10px $yellow_strong;
+    }
+}

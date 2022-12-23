@@ -1,0 +1,36 @@
+{
+  "name": "qmes-admin",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@camberi/firecms": "^2.0.0-alpha.42",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mui/icons-material": "^5",
+    "@mui/lab": "^5.0.0-alpha.104",
+    "@mui/material": "^5",
+    "@mui/x-date-pickers": "^5.0.0-beta.1",
+    "firebase": "^9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router": "^6",
+    "react-router-dom": "^6"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "@typescript-eslint/parser": "^5.40.1",
+    "@vitejs/plugin-react": "^2.1.0",
+    "eslint": "^8.26.0",
+    "eslint-plugin-react": "^7.31.10",
+    "typescript": "*",
+    "vite": "^3.1.0"
+  }
+}

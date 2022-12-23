@@ -1,0 +1,54 @@
+version: '3.7'
+services:
+
+  qmes-admin:
+    container_name: qmes-admin
+    env_file:
+      - .env
+    restart: always
+    build:
+      context: ./admin
+    environment:
+      - VITE_FB_API_KEY=${VITE_FB_API_KEY}
+      - VITE_FB_AUTH_DOMAIN=${VITE_FB_AUTH_DOMAIN}
+      - VITE_FB_PROJECT_ID=${VITE_FB_PROJECT_ID}
+      - VITE_FB_STORAGE_BUCKET=${VITE_FB_STORAGE_BUCKET}
+      - VITE_FB_MESSAGING_SENDER_ID=${VITE_FB_MESSAGING_SENDER_ID}
+      - VITE_FB_APP_ID=${VITE_FB_APP_ID}
+    volumes:
+      - ./admin:/app
+      - qmes-admin-modules:/app/node_modules
+    ports:
+      - 3001:3001
+    networks:
+      - net-qmes
+
+  qmes-client:
+    container_name: qmes-client
+    env_file:
+      - .env
+    restart: always
+    build:
+      context: ./client
+    environment:
+      - VITE_FB_API_KEY=${VITE_FB_API_KEY}
+      - VITE_FB_AUTH_DOMAIN=${VITE_FB_AUTH_DOMAIN}
+      - VITE_FB_PROJECT_ID=${VITE_FB_PROJECT_ID}
+      - VITE_FB_STORAGE_BUCKET=${VITE_FB_STORAGE_BUCKET}
+      - VITE_FB_MESSAGING_SENDER_ID=${VITE_FB_MESSAGING_SENDER_ID}
+      - VITE_FB_APP_ID=${VITE_FB_APP_ID}
+      - VITE_ADMIN_URL=${VITE_ADMIN_URL}
+    volumes:
+      - ./client:/app
+      - qmes-client-modules:/app/node_modules
+    ports:
+      - 3000:3000
+    networks:
+      - net-qmes
+
+networks:
+  net-qmes:
+
+volumes:
+  qmes-admin-modules:
+  qmes-client-modules:

@@ -1,0 +1,11 @@
+@import '../../assets/sass/colors.scss';
+
+.text-block {
+    img {
+        max-width: 100%;
+
+        @media (min-width: $md) {
+            max-width: 400px;   
+        }
+    }
+}

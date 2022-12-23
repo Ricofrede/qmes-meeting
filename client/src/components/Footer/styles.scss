@@ -1,0 +1,14 @@
+@import '../../assets/sass/colors.scss';
+
+footer {
+    background-color: $green;
+
+    h2, h5 {
+        color: $red;
+    }
+
+    a {
+        color: $yellow_weak;
+        font-weight: bolder;
+    }
+}
