@@ -17,8 +17,8 @@ const usersCollection = buildCollection<User>({
     defaultSize: "s",
     icon: 'Badge',
     permissions: ({ authController }) => ({
-        edit: false,
-        create: true,
+        edit: true,
+        create: false,
         delete: false
     }),
     properties: {
