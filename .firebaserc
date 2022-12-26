@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "default": "qmes-meeting"
+  },
+  "targets": {
+    "qmes-meeting": {
+      "hosting": {
+        "admin": [
+          "qmes-admin"
+        ],
+        "client": [
+          "qmes-meeting"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
