@@ -23,8 +23,10 @@ export default function Hero({ id, title, intro, imageRef, textLoading }: HeroPr
 			<Meta title={title} description={intro} image={data?.image} />
 			<div
 				className="hero p-5 text-center bg-image"
-				style={!isLoading && !error && data?.image ? {
-					backgroundImage: `url('${data.image}')`
+				style={!isLoading && !error /* && data?.image */ ? {
+					backgroundImage: "url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp')", //`url('${data.image}')`,
+					"height": "400px",
+					"marginTop": "58px"
 				} : {}}
 			>
 				<div className="hero-content mask">

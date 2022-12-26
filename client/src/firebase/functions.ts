@@ -66,7 +66,7 @@ export interface ContentReference {
 
 export async function getPages(): Promise<Page[]> {
 	const col = collection(db, 'pages')
-	const q = await query(col, where('status', '==', 'public'))
+	const q = await query(col)
 	const docs = await getDocs(q)
 	const list = docs.docs.map(doc => ({ ...doc.data(), id: doc.id } as Page))
 
@@ -108,7 +108,7 @@ async function grabFileURLFromStorage(path: string | null): Promise<string> {
 
 export async function getSocials(): Promise<Social[]> {
 	const col = collection(db, 'social')
-	const q = await query(col, where('status', '==', 'public'))
+	const q = await query(col)
 	const docs = await getDocs(q)
 	const list = docs.docs.map(doc => doc.data() as Social)
 
