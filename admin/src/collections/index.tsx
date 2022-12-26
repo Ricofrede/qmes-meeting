@@ -4,6 +4,7 @@ import imagesCollection from "./images"
 import socialCollection from "./social"
 import usersCollection from "./users"
 import registrationCollection from "./registration"
+import speakersCollection from './speakers'
 
 export default [
     pagesCollection,
@@ -11,5 +12,6 @@ export default [
     imagesCollection,
     socialCollection,
     usersCollection,
-    registrationCollection
+    registrationCollection,
+    speakersCollection
 ]

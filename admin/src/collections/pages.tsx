@@ -5,7 +5,7 @@ import {
     CollectionSize
 } from "@camberi/firecms";
 
-import { articleList, eventRegister } from './components'
+import { articleList, eventRegister, speakersList } from './components'
 
 type Page = {
     title: string;
@@ -76,7 +76,8 @@ const pagesCollection = buildCollection<Page>({
                         markdown: true
                     },
                     articleList: articleList,
-                    eventRegister: eventRegister
+                    eventRegister: eventRegister,
+                    speakersList: speakersList
                 }
             }
         })
