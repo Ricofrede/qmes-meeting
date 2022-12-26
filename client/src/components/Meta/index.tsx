@@ -12,9 +12,9 @@ export default function Meta({ title, description, image }: MetaProps) {
 		return <></>
 	}
 
-	title = !['Home', 'home'].includes(title) ? title : 'Projeto Natal Feliz'
-	description = description || 'Projeto Natal Feliz'
-	image = image
+	title = !['Home', 'home'].includes(title) ? title : 'FIMQMES - 2023'
+	description = description || 'First Iberoamerican Meeting on Quantum Materials and Electronic Structures: Theory and Experiments'
+	image = image || ''
 	const keywords = title.replace(/\s/g, ', ')
 
 	return (

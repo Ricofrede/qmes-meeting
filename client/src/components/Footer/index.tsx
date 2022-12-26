@@ -42,7 +42,7 @@ export default function Footer() {
 				<div className="text-center p-3" style={{
 					backgroundColor: "rgba(0, 0, 0, 0.2)"
 				}}>
-					QMES - 2023
+					FIMQMES - 2023
 				</div>
 			</footer>
 		</>
