@@ -57,7 +57,7 @@ export default function MainPage() {
 		<>
 			<Hero
 				id={id}
-				title={data?.name}
+				title={data?.title}
 				intro={data?.intro}
 				imageRef={data?.image}
 				textLoading={isLoading}

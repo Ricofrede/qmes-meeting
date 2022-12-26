@@ -31,8 +31,8 @@ const pagesCollection = buildCollection<Page>({
         delete: true
     }),
     properties: {
-        name: {
-            title: "Title",
+        title: {
+            name: "Title",
             dataType: "string"
         },
         shortName: {

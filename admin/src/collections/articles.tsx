@@ -27,8 +27,8 @@ const articlesCollection = buildCollection<Article>({
         delete: true
     }),
     properties: {
-        name: {
-            title: "Title",
+        title: {
+            name: "Title",
             dataType: "string"
         },
         image: buildProperty({
