@@ -19,6 +19,20 @@ export default function useAuthenticator() {
 
         const userDoc = await dataSource.fetchEntity({ path: `users`, entityId: user?.uid || '', collection: usersCollection })
 
+        if (!userDoc?.id) {
+            // If user doesn't exist, then we create it without admin privileges
+            await dataSource.saveEntity({
+                path: `users`,
+                entityId: user?.uid || '',
+                collection: usersCollection,
+                status: 'new',
+                values: {
+                    name: user.email || undefined,
+                    admin: false
+                }
+            })
+        }
+
         if (
             !userDoc ||
             !userDoc.values.admin

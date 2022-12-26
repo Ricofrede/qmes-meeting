@@ -23,7 +23,7 @@ export default function App() {
   const myAuthenticator = useAuthenticator()
 
   return <FirebaseCMSApp
-    name={"Projeto Natal Feliz"}
+    name={"QMES - Meeting"}
     authentication={myAuthenticator}
     collections={collections}
     firebaseConfig={firebaseConfig}
