@@ -5,6 +5,7 @@ import Hero from './Hero'
 import Header from './Header'
 import Meta from './Meta'
 import CustomModal from './CustomModal'
+import SpeakersList from './SpeakersList'
 
 export {
 	TextBlock,
@@ -14,4 +15,5 @@ export {
 	Hero,
 	Meta,
 	CustomModal,
+	SpeakersList,
 }

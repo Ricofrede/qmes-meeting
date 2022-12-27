@@ -40,24 +40,12 @@ export interface Social {
 	url: string
 }
 
-export interface Child {
+export interface Speaker {
 	id: string
 	name: string
-	gender?: string
-	picture?: ContentReference
-	intro?: string
-	sponsor?: string
-}
-
-export interface Sponsor {
-	id: string
-	name: string
-	gender?: string
-	status: boolean
-	phone?: string;
-	isZap: boolean;
-	email?: string;
-	child: ContentReference
+	description: string;
+	image: ContentReference;
+	importance: number;
 }
 
 export interface ContentReference {
@@ -115,23 +103,13 @@ export async function getSocials(): Promise<Social[]> {
 	return list.sort((a, b) => (b.importance || 0) - (a.importance || 0))
 }
 
-export async function getChildren(): Promise<Child[]> {
-	const col = collection(db, 'children')
+export async function getSpeakers(): Promise<Speaker[]> {
+	const col = collection(db, 'speakers')
 	const q = await query(col)
 	const docs = await getDocs(q)
-	const list = docs.docs.map(doc => ({ ...doc.data(), id: doc.id } as Child))
+	const list = docs.docs.map(doc => ({ ...doc.data(), id: doc.id } as Speaker))
 
-	return list//.sort((() => Math.random() - 0.5))
-}
-
-export async function getChild(
-	childObj: ContentReference
-): Promise<Child> {
-	const docRef = doc(db, 'children', childObj?.id)
-	const docSnap = await getDoc(docRef)
-	const info = { ...docSnap.data(), id: docSnap.id } as Child
-
-	return info
+	return list.sort((a, b) => (b.importance || 0) - (a.importance || 0))
 }
 
 export async function addSponsor(
@@ -161,21 +139,4 @@ export async function addSponsor(
 		sponsor: sponsorRef
 	})
 
-}
-
-export async function findSponsor(
-	search: string
-): Promise<Sponsor[]> {
-	const isEmail = search.indexOf('@') > -1
-
-	const col = collection(db, 'sponsors')
-
-	const q1 = await query(col, where('email', '==', search))
-	const q2 = await query(col, where('phone', '==', search))
-
-	const docs = await getDocs(isEmail ? q1 : q2)
-
-	const list = docs.docs.map(doc => ({ ...doc.data(), id: doc.id } as Sponsor))
-
-	return list
 }

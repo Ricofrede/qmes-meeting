@@ -2,11 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body {
-    background-color: $black;
+    background-color: $bg;
 }
 
 h1, h2, h3, h4, h5, h6, label {
-    color: $white;
+    color: $text;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
 }
@@ -16,9 +16,9 @@ p, a {
 }
 
 p {
-    color: $white;
+    color: $text;
 }
 
 a {
-    color: $yellow;
+    color: $secondary;
 }
