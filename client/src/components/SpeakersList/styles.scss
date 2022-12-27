@@ -1,0 +1,23 @@
+@import '../../assets/sass/colors.scss';
+
+.speakersList-wrapper {
+    h5, p {
+        color: $bg !important;
+    }
+
+    .speakersList-cards {
+        columns: 2;
+
+        @media (max-width: $lg) {
+            columns: 1;
+        }
+
+        .card {
+            img {
+                object-fit: cover;
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+}
