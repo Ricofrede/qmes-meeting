@@ -1,0 +1,16 @@
+@import '../../assets/sass/colors.scss';
+
+.event-register{
+    padding: 20px;
+    border: thick solid $main;
+    border-radius: 15px;
+
+    @media (min-width: $lg) {
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    h5, p, label {
+        color: $text !important;
+    }
+}

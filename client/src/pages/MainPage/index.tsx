@@ -8,7 +8,8 @@ import {
 	TextBlock,
 	ImageBlock,
 	Hero,
-	SpeakersList
+	SpeakersList,
+	EventRegister
 } from '../../components'
 
 export default function MainPage() {
@@ -50,6 +51,10 @@ export default function MainPage() {
 				case 'speakersList':
 					const speakersTitle: string = content.value?.title
 					return <SpeakersList key={`page-content-${index}`} title={speakersTitle} />
+					break
+				case 'eventRegister':
+					const eventRegisterTitle: string = content.value?.title
+					return <EventRegister key={`page-content-${index}`} title={eventRegisterTitle} />
 					break
 				default:
 					return <></>

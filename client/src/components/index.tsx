@@ -6,6 +6,7 @@ import Header from './Header'
 import Meta from './Meta'
 import CustomModal from './CustomModal'
 import SpeakersList from './SpeakersList'
+import EventRegister from './EventRegister'
 
 export {
 	TextBlock,
@@ -16,4 +17,5 @@ export {
 	Meta,
 	CustomModal,
 	SpeakersList,
+	EventRegister,
 }

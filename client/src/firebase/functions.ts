@@ -48,6 +48,14 @@ export interface Speaker {
 	importance: number;
 }
 
+export interface Registration {
+	id: string
+	name: string;
+	dinner: boolean;
+	institute: string
+	email: string;
+}
+
 export interface ContentReference {
 	id: string
 }
@@ -112,31 +120,42 @@ export async function getSpeakers(): Promise<Speaker[]> {
 	return list.sort((a, b) => (b.importance || 0) - (a.importance || 0))
 }
 
-export async function addSponsor(
+export async function getRegistration(id: string): Promise<Registration> {
+	const docRef = doc(db, 'registrations', id)
+	const docSnap = await getDoc(docRef)
+	const info = { ...docSnap.data(), id: docSnap.id } as Registration
+
+	return info
+}
+
+export async function addRegistration(
 	name: string,
 	email: string,
-	phone: string,
-	gender: string,
-	isZap: boolean,
-	childId: string
+	dinner: boolean,
+	institute: string,
 ) {
 	const now = (new Date()).getTime()
-	const newSponsorId = `${email}-${now}`
+	const newRegistrationsId = `${email}`
 
-	const sponsorRef = doc(db, 'sponsors', newSponsorId)
-	const childRef = doc(db, 'children', childId)
+	const alreadyExists = await getRegistration(newRegistrationsId)
 
-	await setDoc(sponsorRef, {
-		name,
-		phone,
-		email,
-		gender,
-		isZap,
-		status: false,
-		child: childRef
-	})
-	await updateDoc(childRef, {
-		sponsor: sponsorRef
-	})
+	if (alreadyExists && alreadyExists.email) {
+		return 'This email has already been registered for the event!'
+	}
+
+	const registrationRef = doc(db, 'registrations', newRegistrationsId)
+
+	try {
+		await setDoc(registrationRef, {
+			name,
+			dinner,
+			email,
+			institute
+		})
+
+		return 'Thank you for your registration!'
+	} catch (e) {
+		return `Something went wrong: "${e.message}"`
+	}
 
 }

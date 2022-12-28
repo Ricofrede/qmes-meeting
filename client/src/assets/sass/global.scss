@@ -22,3 +22,14 @@ p {
 a {
     color: $secondary;
 }
+
+button {
+    width: max-content !important;
+    color: $bg !important;
+    background-color: $main !important;
+
+    &:hover {
+        color: $bg !important;
+        background-color: $secondary !important;
+    }
+}

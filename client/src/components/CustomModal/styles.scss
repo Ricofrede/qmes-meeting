@@ -15,9 +15,13 @@
   
 /* Modal Content/Box */
 .custom-modal-content {
-    background-color: #fefefe;
+    background-color: $text;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
+
+    h1, h2, h3, h4, h5, h6, p, label {
+        color: $bg !important;
+    }
 }
