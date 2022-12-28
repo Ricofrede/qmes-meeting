@@ -6,9 +6,8 @@ import {
 
 type Registration = {
 	name: string;
-	gender: string;
-	status: boolean;
-	phone: string;
+	dinner: boolean;
+	institute: string
 	email: string;
 }
 
@@ -31,22 +30,13 @@ const registrationCollection = buildCollection<Registration>({
 			validation: { required: true },
 			dataType: 'string'
 		},
-		gender: {
-			name: 'Gender',
-			dataType: 'string',
-			enumValues: {
-				male: 'Male',
-				female: 'Female'
-			}
-		},
-		status: buildProperty({
-			name: 'Status',
-			description: 'Has this person confirmed?',
+		dinner: buildProperty({
+			name: 'With Dinner?',
+			description: 'Has this person opted in for dinner?',
 			dataType: 'boolean'
 		}),
-		phone: {
-			name: 'Phone number',
-			validation: { required: true },
+		institute: {
+			name: 'Affiliated Institute',
 			dataType: 'string',
 		},
 		email: {

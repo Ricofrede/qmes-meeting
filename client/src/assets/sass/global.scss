@@ -20,5 +20,22 @@ p {
 }
 
 a {
-    color: $secondary;
+    color: $main !important;
+    font-weight: bolder;
+
+    &:hover {
+        color: $secondary !important;
+    }
+
+}
+
+button {
+    width: max-content !important;
+    color: $bg !important;
+    background-color: $main !important;
+
+    &:hover {
+        color: $bg !important;
+        background-color: $secondary !important;
+    }
 }

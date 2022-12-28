@@ -3,9 +3,10 @@ const dynamicCacheName = 'site-dynamic'
 const assets = [
 	'/',
 	'/index.html',
-	'/android-chrome-192x192.png',
-	'/android-chrome-512x512.png',
-	'https://projeto-natal-feliz.web.app/android-chrome-512x512.png'
+	'/logo192.png',
+	'/logo512.png',
+	'/mask512.png',
+	'/logoApple.png'
 ]
 
 // install event

@@ -1,1 +1,13 @@
 @import '../../assets/sass/colors.scss';
+
+footer {
+    a {
+        color: $main !important;
+        border-color: $main !important;
+
+        &:hover {
+            color: $secondary !important;
+            border-color: $secondary !important;
+        }
+    }
+}
