@@ -1,1 +1,27 @@
 @import '../../assets/sass/colors.scss';
+
+header {
+    .navbar {
+        background-color: $bg;
+
+        .nav-item {
+            a {
+                color: $main !important;
+                border-color: $main !important;
+                font-weight: bolder;
+        
+                &.active {
+                    text-shadow: 0px 0px 5px $third;
+                    color: $secondary !important;
+                    border-color: $secondary !important;
+                }
+
+                &:hover {
+                    color: $secondary !important;
+                    border-color: $secondary !important;
+                }
+
+            }
+        }
+    }
+}
