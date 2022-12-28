@@ -11,10 +11,9 @@ interface HeroProps {
 	title?: string
 	intro?: string
 	imageRef?: ContentReference
-	textLoading: boolean
 }
 
-export default function Hero({ id, title, intro, imageRef, textLoading }: HeroProps) {
+export default function Hero({ id, title, intro, imageRef }: HeroProps) {
 	const ref: ContentReference = imageRef || { id: '' }
 	const { data, isLoading, error } = useQuery<Image, Error>(`hero-${id}`, () => getImage(ref))
 

@@ -1,16 +1,16 @@
 include .env
 
-ADMINIMG := natal-beneficente_natal-admin
-CLIENTIMG := natal-beneficente_natal-client
-ADMINVOL := natal-beneficente_natal-admin-modules
-CLIENTVOL := natal-beneficente_natal-client-modules
+ADMINIMG := qmes-meeting_qmes-admin
+CLIENTIMG := qmes-meeting_qmes-client
+ADMINVOL := qmes-meeting_qmes-admin-modules
+CLIENTVOL := qmes-meeting_qmes-client-modules
 ADMINLOCAL := admin
 CLIENTLOCAL := client
 ADMINCWD := /app
 CLIENTCWD := /app
 USER := $(shell /usr/bin/id -u)
-ADMIN := natal-admin
-CLIENT := natal-client
+ADMIN := qmes-admin
+CLIENT := qmes-client
 
 up:## Build the app container image (if it doesn't exists) and runs the containers
 	docker-compose up
