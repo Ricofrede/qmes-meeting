@@ -8,6 +8,7 @@ import {
 	TextBlock,
 	ImageBlock,
 	Hero,
+	HeroLoading,
 	SpeakersList,
 	EventRegister
 } from '../../components'
@@ -20,6 +21,7 @@ export default function MainPage() {
 	}
 
 	const { data, isLoading, error } = useQuery<Page, Error>(`page-"${id}`, () => getPage(String(id)))
+	const imageRef: ContentReference | null = !isLoading && !error ? data?.image || { id: '' } : null
 
 	function renderContentsLoading() {
 		return (
@@ -65,13 +67,18 @@ export default function MainPage() {
 
 	return (
 		<>
-			<Hero
-				id={id}
-				title={data?.title}
-				intro={data?.intro}
-				imageRef={data?.image}
-				textLoading={isLoading}
-			/>
+			{isLoading || !imageRef ? (
+				<HeroLoading />
+			) : <></>}
+			{imageRef ?
+				<Hero
+					id={id}
+					title={data?.title}
+					intro={data?.intro}
+					imageRef={imageRef}
+					textLoading={isLoading}
+				/> : <></>
+			}
 			<div className="container contents-wrapper">
 				{renderContents()}
 			</div>
