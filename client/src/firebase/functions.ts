@@ -154,8 +154,8 @@ export async function addRegistration(
 		})
 
 		return 'Thank you for your registration!'
-	} catch (e) {
-		return `Something went wrong: "${e.message}"`
+	} catch (e: any) {
+		return `Something went wrong: "${e?.message || ''}"`
 	}
 
 }
