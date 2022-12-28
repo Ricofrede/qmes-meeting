@@ -76,7 +76,6 @@ export default function MainPage() {
 					title={data?.title}
 					intro={data?.intro}
 					imageRef={imageRef}
-					textLoading={isLoading}
 				/> : <></>
 			}
 			<div className="container contents-wrapper">
