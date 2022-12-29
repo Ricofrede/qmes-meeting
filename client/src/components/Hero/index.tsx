@@ -28,13 +28,34 @@ export default function Hero({ id, title, intro, imageRef }: HeroProps) {
 				/>
 			) : (
 				<>
-					<div
-						className="hero p-5 text-center bg-image"
-						style={{
-							backgroundImage: data?.image ? `url('${data.image}')` : ''
-						}}
-					></div>
-					{title || intro ? (
+					{data?.image ? (
+						<div
+							className="hero p-5 text-center bg-image"
+							style={{
+								backgroundImage: `url('${data.image}')`
+							}}
+						></div>
+					) : (
+						<div
+							className="hero p-5 text-center bg-image"
+						>
+							{title || intro ? (
+								<div className="hero-content">
+									<div className="d-flex justify-content-center align-items-center h-100">
+										<div className="hero-text-wrapper">
+											{title ? (
+												<h1 className={intro ? 'mb-3' : 'mb-0'}>{title}</h1>
+											) : <></>}
+											{intro ? (
+												<h4 className="mb-0">{intro}</h4>
+											) : <></>}
+										</div>
+									</div>
+								</div>
+							) : <></>}
+						</div>
+					)}
+					{data?.image && (title || intro) ? (
 						<div className="hero-content">
 							<div className="d-flex justify-content-center align-items-center h-100">
 								<div className="hero-text-wrapper">
