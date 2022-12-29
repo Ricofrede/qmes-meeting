@@ -1,6 +1,6 @@
 import { buildProperty } from "@camberi/firecms";
 
-export const eventRegister = buildProperty({
+export const contactForm = buildProperty({
     dataType: "map",
     properties: {
         title: {
