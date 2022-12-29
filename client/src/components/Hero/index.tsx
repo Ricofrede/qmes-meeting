@@ -27,14 +27,15 @@ export default function Hero({ id, title, intro, imageRef }: HeroProps) {
 					alt="Logo QMES - 2023"
 				/>
 			) : (
-				<div
-					className="hero p-5 text-center bg-image"
-					style={{
-						backgroundImage: data?.image ? `url('${data.image}')` : ''
-					}}
-				>
+				<>
+					<div
+						className="hero p-5 text-center bg-image"
+						style={{
+							backgroundImage: data?.image ? `url('${data.image}')` : ''
+						}}
+					></div>
 					{title || intro ? (
-						<div className="hero-content mask">
+						<div className="hero-content">
 							<div className="d-flex justify-content-center align-items-center h-100">
 								<div className="hero-text-wrapper">
 									{title ? (
@@ -47,7 +48,7 @@ export default function Hero({ id, title, intro, imageRef }: HeroProps) {
 							</div>
 						</div>
 					) : <></>}
-				</div>
+				</>
 			)}
 		</>
 	)
