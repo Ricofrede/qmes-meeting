@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 
 import { getPages, Page } from '../../firebase/functions'
 import './styles.scss'
+import logo from '../../assets/imgs/logo-w.svg'
 
 export default function Header() {
 	const { pathname } = useLocation()
@@ -46,6 +47,9 @@ export default function Header() {
 			<header>
 				<nav className="navbar navbar-expand-lg fixed-top">
 					<div className="container-fluid">
+						<Link className="navbar-brand" to="/">
+							QUANTUM MATERIALS
+						</Link>
 						<button
 							className="navbar-toggler"
 							type="button"
@@ -58,7 +62,7 @@ export default function Header() {
 							<i className="fas fa-bars"></i>
 						</button>
 						<div className="collapse navbar-collapse" id="navbar">
-							<ul className="navbar-nav me-auto mb-2 mb-lg-0">
+							<ul className="navbar-nav mb-2 mb-lg-0">
 								{renderMenu()}
 							</ul>
 						</div>

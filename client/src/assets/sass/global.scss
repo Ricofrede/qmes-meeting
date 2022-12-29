@@ -1,5 +1,6 @@
 @import './colors.scss';
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amaranth:wght@400;700&display=swap');
 
 body {
     background-color: $bg;
@@ -7,12 +8,13 @@ body {
 
 h1, h2, h3, h4, h5, h6, label {
     color: $text;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
+    font-family: 'Amaranth', sans-serif;
+    font-weight: 700;
 }
 
 p, a {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Amaranth', sans-serif;
+    font-weight: 400;
 }
 
 p {

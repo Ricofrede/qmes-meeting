@@ -1,6 +1,5 @@
 import { useQuery } from 'react-query'
 import { getImage, Image, Speaker, ContentReference } from '../../firebase/functions'
-import { useState } from 'react'
 import imgPlaceholder from '../../assets/imgs/people-icon.png'
 
 
@@ -9,8 +8,6 @@ interface SpeakersListItemProps {
 }
 
 export default function SpeakersListItem({ speaker }: SpeakersListItemProps) {
-	const [imageOpen, setImageOpen] = useState<boolean>(false)
-
 	const imageRef: ContentReference = speaker?.image || { id: '' }
 	const { data: image, isLoading, error } = useQuery<Image, Error>(`image-speaker-list-item-${speaker.image?.id}`, () => getImage(imageRef))
 
