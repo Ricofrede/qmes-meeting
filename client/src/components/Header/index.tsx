@@ -48,7 +48,9 @@ export default function Header() {
 				<nav className="navbar navbar-expand-lg fixed-top">
 					<div className="container-fluid">
 						<Link className="navbar-brand" to="/">
-							QUANTUM MATERIALS
+							<span style={{ color: '#FFFFFF' }}>QM</span>
+							<span style={{ color: '#64b4f0' }}>E</span>
+							<span style={{ color: '#ffaec8' }}>S</span>
 						</Link>
 						<button
 							className="navbar-toggler"

@@ -4,6 +4,12 @@ header {
     .navbar {
         background-color: $bg;
 
+        .navbar-brand {
+            &:hover {
+                text-shadow: 0px 0px 5px $third;
+            }
+        }
+
         .navbar-collapse {
             justify-content: end;
         }
