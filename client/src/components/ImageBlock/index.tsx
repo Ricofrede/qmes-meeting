@@ -39,7 +39,7 @@ export default function ImageBlock({ value }: ImageBlockProps) {
 					alt={data?.title}
 					className="img-fluid shadow-2-strong"
 				/>
-				<i className="fas fa-3x fa-search-plus"></i>
+				{/* <i className="fas fa-3x fa-search-plus"></i> */}
 			</figure>
 		</>
 	)
