@@ -17,8 +17,14 @@
 
     .hero-content {
 
-        .hero-text-wrapper {
+        .hero-text-wrapper-loading {
             width: 80%;
+        }
+
+        .hero-text-wrapper {
+            width: max-content;
+            background-color: #00000073;
+            box-shadow: 0 0 0 100px #00000073;
         }
     }
 

@@ -10,7 +10,7 @@ export default function HeroLoading() {
             >
                 <div className="hero-content mask">
                     <div className="d-flex justify-content-center align-items-center h-100">
-                        <div className="hero-text-wrapper">
+                        <div className="hero-text-wrapper-loading">
                             <span className="placeholder-glow justify-content-center align-items-center">
                                 <h1 className="mb-3 placeholder w-25 d-block mx-auto rounded"></h1>
                             </span>
