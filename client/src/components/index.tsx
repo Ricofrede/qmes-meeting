@@ -8,6 +8,7 @@ import Meta from './Meta'
 import CustomModal from './CustomModal'
 import SpeakersList from './SpeakersList'
 import EventRegister from './EventRegister'
+import ContactForm from './ContactForm'
 
 export {
 	TextBlock,
@@ -20,4 +21,5 @@ export {
 	CustomModal,
 	SpeakersList,
 	EventRegister,
+	ContactForm,
 }

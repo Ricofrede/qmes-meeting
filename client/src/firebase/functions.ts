@@ -165,3 +165,29 @@ export async function addRegistration(
 	}
 
 }
+
+export async function addContact(
+	name: string,
+	email: string,
+	subject: string,
+	message: string
+) {
+	const now = (new Date()).getTime()
+	const newContactId = `${email}-${now}`
+
+	const contactRef = doc(db, 'contacts', newContactId)
+
+	try {
+		await setDoc(contactRef, {
+			name,
+			email,
+			subject,
+			message
+		})
+
+		return 'You message has been sent, soon we\'ll be getting in touch!'
+	} catch (e: any) {
+		return `Something went wrong: "${e?.message || ''}"`
+	}
+
+}

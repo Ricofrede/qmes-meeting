@@ -10,7 +10,8 @@ import {
 	Hero,
 	HeroLoading,
 	SpeakersList,
-	EventRegister
+	EventRegister,
+	ContactForm
 } from '../../components'
 
 export default function MainPage() {
@@ -57,6 +58,10 @@ export default function MainPage() {
 				case 'eventRegister':
 					const eventRegisterTitle: string = content.value?.title
 					return <EventRegister key={`page-content-${index}`} title={eventRegisterTitle} />
+					break
+				case 'contactForm':
+					const contactFormTitle: string = content.value?.title
+					return <ContactForm key={`page-content-${index}`} title={contactFormTitle} />
 					break
 				default:
 					return <></>
