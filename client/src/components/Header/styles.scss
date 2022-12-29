@@ -4,6 +4,10 @@ header {
     .navbar {
         background-color: $bg;
 
+        .navbar-collapse {
+            justify-content: end;
+        }
+
         .nav-item {
             a {
                 color: $main !important;

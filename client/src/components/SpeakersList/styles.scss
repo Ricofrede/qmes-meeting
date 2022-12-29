@@ -4,7 +4,7 @@
     margin: 20px auto;
     
     h5, p {
-        color: $bg !important;
+        color: $text !important;
     }
 
     .speakersList-cards {
@@ -15,6 +15,9 @@
         }
 
         .card {
+            background-color: $bg !important;
+            border: thick solid $main;
+
             img {
                 object-fit: cover;
                 height: 100%;
