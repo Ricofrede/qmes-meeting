@@ -12,6 +12,9 @@ export default function EventRegister({ title }: EventRegisterProps) {
 	const [email, setEmail] = useState<string>('')
 	const [institute, setInstitute] = useState<string>('')
 	const [dinner, setDinner] = useState<boolean>(false)
+	const [hasPoster, setHasPoster] = useState<boolean>(false)
+	const [subject, setSubject] = useState<string>('')
+	const [description, setDescription] = useState<string>('')
 
 	const [sending, setSending] = useState<boolean>(false)
 	const [sendMsg, setSendMsg] = useState<string>('')
@@ -28,7 +31,10 @@ export default function EventRegister({ title }: EventRegisterProps) {
 			name,
 			email,
 			dinner,
-			institute
+			institute,
+			hasPoster,
+			subject,
+			description
 		)
 
 		if (status) {
@@ -44,6 +50,9 @@ export default function EventRegister({ title }: EventRegisterProps) {
 		setEmail('')
 		setDinner(false)
 		setInstitute('')
+		setHasPoster(false)
+		setSubject('')
+		setDescription('')
 		setSending(false)
 	}
 
@@ -115,6 +124,37 @@ export default function EventRegister({ title }: EventRegisterProps) {
 						onChange={(e) => setDinner(e.target.checked)}
 					/>
 					<label className="form-check-label" htmlFor="event-register-input-dinner">Opt in for paid dinner from the event?</label>
+				</div>
+				<div className="mb-3 form-check">
+					<input
+						type="checkbox"
+						className="form-check-input"
+						id="event-register-input-poster"
+						checked={hasPoster}
+						onChange={(e) => setHasPoster(e.target.checked)}
+					/>
+					<label className="form-check-label" htmlFor="event-register-input-poster">Would you like to put up a work's poster?</label>
+				</div>
+				<div className="mb-3">
+					<label htmlFor="event-register-input-subject" className="form-label">Poster's Subject</label>
+					<input
+						type="text"
+						className="form-control"
+						id="event-register-input-subject"
+						aria-describedby="affiliation-help"
+						value={subject}
+						onChange={(e) => setSubject(e.target.value)}
+					/>
+				</div>
+				<div className="mb-3">
+					<label htmlFor="event-register-input-description" className="form-label">Poster's Description</label>
+					<textarea
+						className="form-control"
+						id="event-register-input-description"
+						aria-describedby="affiliation-help"
+						value={description}
+						onChange={(e) => setDescription(e.target.value)}
+					/>
 				</div>
 				<div className="row justify-content-center">
 					<button type="submit" className="btn btn-primary">Submit</button>

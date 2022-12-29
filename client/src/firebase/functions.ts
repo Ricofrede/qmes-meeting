@@ -133,6 +133,9 @@ export async function addRegistration(
 	email: string,
 	dinner: boolean,
 	institute: string,
+	hasPoster: boolean,
+	subject: string,
+	description: string
 ) {
 	const now = (new Date()).getTime()
 	const newRegistrationsId = `${email}`
@@ -150,7 +153,10 @@ export async function addRegistration(
 			name,
 			dinner,
 			email,
-			institute
+			institute,
+			hasPoster,
+			subject,
+			description
 		})
 
 		return 'Thank you for your registration!'
