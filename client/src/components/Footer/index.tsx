@@ -42,7 +42,7 @@ export default function Footer() {
 				<div className="text-center p-3" style={{
 					backgroundColor: "rgba(0, 0, 0, 0.2)"
 				}}>
-					FIMQMES - 2023
+					<p>First Iberoamerican Meeting on Quantum Materials and Electronic Structures: Theory and Experiments - 2023</p>
 				</div>
 			</footer>
 		</>

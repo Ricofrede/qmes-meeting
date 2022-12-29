@@ -24,7 +24,7 @@ export default function Hero({ id, title, intro, imageRef }: HeroProps) {
 				<img
 					className="home-logo"
 					src={logo}
-					alt="Logo FIMQMES - 2023"
+					alt="Logo QMES - 2023"
 				/>
 			) : (
 				<div

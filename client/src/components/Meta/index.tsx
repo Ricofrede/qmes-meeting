@@ -12,7 +12,7 @@ export default function Meta({ title, description, image }: MetaProps) {
 		return <></>
 	}
 
-	title = !['Home', 'home'].includes(title) ? title : 'FIMQMES - 2023'
+	title = !['Home', 'home'].includes(title) ? title : 'QMES - 2023'
 	description = description || 'First Iberoamerican Meeting on Quantum Materials and Electronic Structures: Theory and Experiments'
 	image = image || ''
 	const keywords = title.replace(/\s/g, ', ')
