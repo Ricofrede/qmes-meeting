@@ -22,14 +22,9 @@ export default function Hero({ id, title, intro, imageRef }: HeroProps) {
 			<Meta title={title} description={intro} image={data?.image} />
 			{id === 'home' ? (
 				<img
+					className="home-logo"
 					src={logo}
-					alt="Your SVG"
-					style={{
-						maxWidth: "calc(100 % - 40px)",
-						margin: 'auto',
-						maxHeight: '100vh',
-						display: 'block'
-					}}
+					alt="Logo FIMQMES - 2023"
 				/>
 			) : (
 				<div
