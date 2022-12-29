@@ -9,6 +9,9 @@ type Registration = {
 	dinner: boolean;
 	institute: string
 	email: string;
+	hasPoster: boolean;
+	subject: string;
+	description: string;
 }
 
 const registrationCollection = buildCollection<Registration>({
@@ -43,6 +46,21 @@ const registrationCollection = buildCollection<Registration>({
 			name: 'E-mail',
 			validation: { required: true },
 			dataType: 'string',
+		},
+		hasPoster: buildProperty({
+			name: 'Put Up Poster?',
+			description: 'Has this person opted in for putting up a work\'s poster?',
+			dataType: 'boolean'
+		}),
+		subject: {
+			name: 'Poster\'s Subject',
+			dataType: 'string',
+		},
+		description: {
+			name: 'Poster\'s Description',
+			dataType: 'string',
+			columnWidth: 300,
+			multiline: true
 		}
 	}
 });
