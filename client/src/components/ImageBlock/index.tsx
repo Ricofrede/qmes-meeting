@@ -32,7 +32,14 @@ export default function ImageBlock({ value }: ImageBlockProps) {
 					</figure>
 				</CustomModal>
 			) : <></>}
-			<figure onClick={() => setModalOpen(true)} className="image-block d-flex justify-content-center w-25">
+			<figure
+				onClick={() => setModalOpen(true)}
+				className="image-block d-flex justify-content-center"
+				style={{
+					width: data?.width ? `${data.width}` : '',
+					height: data?.height ? `${data.height}` : '',
+				}}
+			>
 				<img
 					src={data?.image}
 					title={data?.title}

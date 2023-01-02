@@ -9,6 +9,11 @@
         @media (max-width: $lg) {
             margin-top: 40px;
         }
+
+        @media (max-width: $sm) {
+            background-size: contain;
+            margin-top: 0;
+        }
     }
 
     h1,h2,h3,h4,h5,h6 {

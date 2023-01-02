@@ -7,6 +7,8 @@ type Image = {
     title: string;
     caption: string;
     image: string;
+    width: string;
+    height: string;
 }
 
 const imagesCollection = buildCollection<Image>({
@@ -40,7 +42,15 @@ const imagesCollection = buildCollection<Image>({
                 storagePath: "images",
                 acceptedFiles: ["image/*"]
             }
-        })
+        }),
+        width: {
+            name: "Custom Width",
+            dataType: "string"
+        },
+        height: {
+            name: "Custom Height",
+            dataType: "string"
+        },
     }
 });
 
