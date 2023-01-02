@@ -30,6 +30,8 @@ export interface Image {
 	title: string
 	caption: string
 	image: string
+	width: string;
+	height: string;
 }
 
 export interface Social {
@@ -78,7 +80,7 @@ export async function getPage(id: string): Promise<Page> {
 }
 
 export async function getImage(imageObj: ContentReference): Promise<Image> {
-	if (!imageObj?.id) return { title: '', caption: '', image: '' }
+	if (!imageObj?.id) return { title: '', caption: '', image: '', width: '', height: '' }
 
 	const docRef = doc(db, 'images', imageObj.id)
 	const docSnap = await getDoc(docRef)
@@ -89,7 +91,9 @@ export async function getImage(imageObj: ContentReference): Promise<Image> {
 	return {
 		title: info?.title || '',
 		caption: info?.caption || '',
-		image: imageUrl
+		image: imageUrl,
+		width: info?.width || '',
+		height: info?.height || '',
 	}
 }
 
