@@ -2,7 +2,7 @@ import { useQuery } from 'react-query'
 
 import { Image, getImage, ContentReference } from '../../firebase/functions'
 import './styles.scss'
-import logo from '../../assets/imgs/logo-w.svg'
+import logo from '../../assets/imgs/logo.svg'
 
 import { Meta } from '../'
 
