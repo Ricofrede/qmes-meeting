@@ -32,7 +32,7 @@ export default function Footer() {
 
 	return (
 		<>
-			<footer className="bg-dark text-center text-white">
+			<footer className="bg-light text-center text-dark">
 				<div className="container p-4 pb-0">
 					<section className="mb-4">
 						{renderSocials()}
