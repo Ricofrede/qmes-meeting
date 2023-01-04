@@ -38,7 +38,7 @@ export default function SpeakersListItem({ speaker }: SpeakersListItemProps) {
 					<div className="col-md-8">
 						<div className="card-body">
 							<h5 className="card-title">{speaker.name}</h5>
-							<p className="card-text">{speaker.description}</p>
+							<p className="card-text" style={{ fontSize: '1rem' }}>{speaker.description}</p>
 						</div>
 					</div>
 				</div>
