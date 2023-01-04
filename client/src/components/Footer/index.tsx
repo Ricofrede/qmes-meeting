@@ -40,9 +40,9 @@ export default function Footer() {
 				</div>
 
 				<div className="text-center p-3" style={{
-					backgroundColor: "rgba(0, 0, 0, 0.2)"
+					backgroundColor: "rgba(0, 0, 0, 0.2)",
 				}}>
-					<p>First Iberoamerican Meeting on Quantum Materials and Electronic Structures: Theory and Experiments - 2023</p>
+					<p style={{ textAlign: 'center' }}>First Iberoamerican Meeting on Quantum Materials and Electronic Structures: Theory and Experiments - 2023</p>
 				</div>
 			</footer>
 		</>
