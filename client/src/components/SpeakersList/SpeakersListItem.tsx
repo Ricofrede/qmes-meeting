@@ -28,17 +28,19 @@ export default function SpeakersListItem({ speaker }: SpeakersListItemProps) {
 
 	return (
 		<>
-			<div
-				className="card mb-3"
-			>
-				<div className="row g-0">
-					<div className="col-md-4">
-						{renderImage()}
-					</div>
-					<div className="col-md-8">
-						<div className="card-body">
-							<h5 className="card-title">{speaker.name}</h5>
-							<p className="card-text">{speaker.description}</p>
+			<div className="col-lg-6">
+				<div
+					className="card mb-3"
+				>
+					<div className="row g-0">
+						<div className="col-md-4">
+							{renderImage()}
+						</div>
+						<div className="col-md-8">
+							<div className="card-body">
+								<h5 className="card-title">{speaker.name}</h5>
+								<p className="card-text" style={{ fontSize: '1rem' }}>{speaker.description}</p>
+							</div>
 						</div>
 					</div>
 				</div>

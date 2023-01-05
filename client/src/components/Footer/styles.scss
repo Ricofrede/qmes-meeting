@@ -10,4 +10,17 @@ footer {
             border-color: $secondary !important;
         }
     }
+
+    p {
+        text-align: center;
+    }
+
+    .footer-dev {
+        margin-bottom: 0;
+        font-size: 0.8rem;
+        color: grey;
+        a {
+            font-size: 0.8rem;
+        }
+    }
 }

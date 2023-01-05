@@ -15,6 +15,28 @@ export default function SpeakersList({ title }: SpeakersListProps) {
 		if (error) return <></>
 		if (!speakers || !speakers.length) return <></>
 
+		const speakersInChunks: Speaker[][] = []
+		speakers.forEach((speaker, index) => {
+			if (index % 2 !== 0) {
+				speakersInChunks.push(
+					speakers.slice(index - 1, index + 1)
+				)
+			}
+		})
+
+		return speakersInChunks?.map(speakersChunk => {
+			return (
+				<>
+					<div className="speakersList-line row">
+						{renderSpeakerLine(speakersChunk)}
+					</div>
+				</>
+			)
+		})
+
+	}
+
+	function renderSpeakerLine(speakers: Speaker[]) {
 		return speakers?.map((speaker, index) => {
 			return (
 				<SpeakersListItem key={`speakersList-card-${index}`} speaker={speaker} />
