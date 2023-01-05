@@ -42,7 +42,9 @@ export default function Footer() {
 				<div className="text-center p-3" style={{
 					backgroundColor: "rgba(0, 0, 0, 0.2)",
 				}}>
-					<p style={{ textAlign: 'center' }}>First Iberoamerican Meeting on Quantum Materials and Electronic Structures: Theory and Experiments - 2023</p>
+					<p >First Iberoamerican Meeting on Quantum Materials and Electronic Structures: Theory and Experiments - 2023</p>
+					<br></br>
+					<p className="footer-dev">Website structure developed by <a href="https://github.com/Ricofrede" target="_blank">Julio Tassinari</a></p>
 				</div>
 			</footer>
 		</>

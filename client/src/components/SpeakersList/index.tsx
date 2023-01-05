@@ -30,7 +30,6 @@ export default function SpeakersList({ title }: SpeakersListProps) {
 					<div className="speakersList-line row">
 						{renderSpeakerLine(speakersChunk)}
 					</div>
-					<hr></hr>
 				</>
 			)
 		})
