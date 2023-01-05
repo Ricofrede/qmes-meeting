@@ -8,20 +8,33 @@
     }
 
     .speakersList-cards {
-        columns: 2;
 
-        @media (max-width: $lg) {
-            columns: 1;
+        hr {
+            height: 0.5rem !important;
+
+            @media (max-width: $lg) {
+                display: none;
+            }
         }
 
-        .card {
-            background-color: $bg !important;
-            border: thick solid $main;
-
-            img {
-                object-fit: cover;
-                height: 100%;
-                width: 100%;
+        .speakersList-line {
+            // columns: 2;
+    
+            // @media (max-width: $lg) {
+            //     columns: 1;
+            // }
+    
+            .card {
+                min-height: calc(100% - 16px);
+                background-color: $bg !important;
+                border: thick solid $main;
+                display: grid;
+    
+                img {
+                    object-fit: cover;
+                    height: 100%;
+                    width: 100%;
+                }
             }
         }
     }
