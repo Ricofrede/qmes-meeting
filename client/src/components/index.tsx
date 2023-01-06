@@ -9,6 +9,7 @@ import CustomModal from './CustomModal'
 import SpeakersList from './SpeakersList'
 import EventRegister from './EventRegister'
 import ContactForm from './ContactForm'
+import Carousel from './Carousel'
 
 export {
 	TextBlock,
@@ -22,4 +23,5 @@ export {
 	SpeakersList,
 	EventRegister,
 	ContactForm,
+	Carousel,
 }

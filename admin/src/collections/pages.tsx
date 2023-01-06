@@ -9,7 +9,8 @@ import {
     articleList,
     eventRegister,
     speakersList,
-    contactForm
+    contactForm,
+    carousel
 } from './components'
 
 type Page = {
@@ -83,7 +84,8 @@ const pagesCollection = buildCollection<Page>({
                     articleList: articleList,
                     eventRegister: eventRegister,
                     speakersList: speakersList,
-                    contactForm: contactForm
+                    contactForm: contactForm,
+                    carousel: carousel
                 }
             }
         })

@@ -11,7 +11,8 @@ import {
 	HeroLoading,
 	SpeakersList,
 	EventRegister,
-	ContactForm
+	ContactForm,
+	Carousel
 } from '../../components'
 
 export default function MainPage() {
@@ -62,6 +63,10 @@ export default function MainPage() {
 				case 'contactForm':
 					const contactFormTitle: string = content.value?.title
 					return <ContactForm key={`page-content-${index}`} title={contactFormTitle} />
+					break
+				case 'carousel':
+					const carouselImages: ContentReference[] = content.value?.images
+					return <Carousel key={`page-content-${index}`} images={carouselImages} />
 					break
 				default:
 					return <></>

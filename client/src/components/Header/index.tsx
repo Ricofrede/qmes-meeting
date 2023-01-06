@@ -47,7 +47,7 @@ export default function Header() {
 			<header>
 				<nav className="navbar navbar-expand-lg fixed-top">
 					<div className="container-fluid">
-						<Link className="navbar-brand" to="/">
+						<Link className="navbar-brand logo" to="/">
 							<span style={{ color: '#000000' }}>QM</span>
 							<span style={{ color: '#64b4f0' }}>E</span>
 							<span style={{ color: '#ffaec8' }}>S</span>

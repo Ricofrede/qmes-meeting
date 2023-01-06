@@ -1,19 +1,32 @@
 @import './colors.scss';
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Amaranth:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@300;400;600&display=swap');
+
+$font-logo: 'Amaranth', sans-serif;
+$font-title: $font-logo;
+// $font: 'Catamaran', sans-serif;
+$font: $font-logo;
 
 body {
+    font-family: $font;
     background-color: $bg;
 }
 
-h1, h2, h3, h4, h5, h6, label {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label {
     color: $text;
-    font-family: 'Amaranth', sans-serif;
+    font-family: $font-logo;
     font-weight: 700;
 }
 
-p, a {
-    font-family: 'Amaranth', sans-serif;
+p,
+a {
     font-weight: 400;
     text-align: justify;
     font-size: 1.5rem;
@@ -21,6 +34,10 @@ p, a {
     @media (max-width: $lg) {
         font-size: 1rem;
     }
+}
+
+.logo {
+    font-family: $font-logo !important;
 }
 
 hr {
@@ -45,11 +62,22 @@ a {
 
 button {
     width: max-content !important;
-    color: $bg !important;
+    color: $text !important;
     background-color: $main !important;
 
     &:hover {
-        color: $bg !important;
+        color: $text !important;
         background-color: $secondary !important;
     }
+
+    &.btn {
+        text-transform: none;
+        font-size: 1rem;
+        font-weight: 600;
+        box-shadow: 0 2px 5px 0 rgb(0 58 255 / 13%), 0 2px 10px 0 rgb(0 101 255 / 18%);
+    }
+}
+
+.form-control:focus {
+    border-color: $main--dark;
 }

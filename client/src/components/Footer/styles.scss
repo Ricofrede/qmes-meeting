@@ -2,11 +2,11 @@
 
 footer {
     a {
-        color: $main !important;
+        color: $main--dark !important;
         border-color: $main !important;
 
         &:hover {
-            color: $secondary !important;
+            color: $secondary--dark !important;
             border-color: $secondary !important;
         }
     }
@@ -18,7 +18,7 @@ footer {
     .footer-dev {
         margin-bottom: 0;
         font-size: 0.8rem;
-        color: grey;
+        color: #525252;
         a {
             font-size: 0.8rem;
         }
