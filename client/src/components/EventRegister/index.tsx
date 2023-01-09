@@ -12,6 +12,7 @@ export default function EventRegister({ title }: EventRegisterProps) {
 	const [email, setEmail] = useState<string>('')
 	const [institute, setInstitute] = useState<string>('')
 	const [dinner, setDinner] = useState<boolean>(false)
+	const [position, setPosition] = useState<string>('')
 	const [hasPoster, setHasPoster] = useState<boolean>(false)
 	const [subject, setSubject] = useState<string>('')
 	const [description, setDescription] = useState<string>('')
@@ -31,6 +32,7 @@ export default function EventRegister({ title }: EventRegisterProps) {
 			name,
 			email,
 			dinner,
+			position,
 			institute,
 			hasPoster,
 			subject,
@@ -49,6 +51,7 @@ export default function EventRegister({ title }: EventRegisterProps) {
 		setName('')
 		setEmail('')
 		setDinner(false)
+		setPosition('')
 		setInstitute('')
 		setHasPoster(false)
 		setSubject('')
@@ -124,6 +127,19 @@ export default function EventRegister({ title }: EventRegisterProps) {
 						onChange={(e) => setDinner(e.target.checked)}
 					/>
 					<label className="form-check-label" htmlFor="event-register-input-dinner">Opt in for paid dinner from the event?</label>
+					<div id="dinner-help" className="form-text">This implies you'll be charged with a cost of R$ 50,00 for students and R$ 100,00 for professors.</div>
+				</div>
+				<div className="mb-3">
+					<label className="form-check-label" htmlFor="event-register-input-position">Are you a student or professor?</label>
+					<select
+						className="form-select"
+						id="event-register-input-position"
+						value={position}
+						onChange={(e) => setPosition(e.target.value)}
+					>
+						<option value="student">Student</option>
+						<option value="professor">Professor</option>
+					</select>
 				</div>
 				<div className="mb-3 form-check">
 					<input

@@ -7,6 +7,7 @@ import {
 type Registration = {
 	name: string;
 	dinner: boolean;
+	position: string;
 	institute: string
 	email: string;
 	hasPoster: boolean;
@@ -37,6 +38,15 @@ const registrationCollection = buildCollection<Registration>({
 			name: 'With Dinner?',
 			description: 'Has this person opted in for dinner?',
 			dataType: 'boolean'
+		}),
+		position: buildProperty({
+			name: 'Position',
+			description: 'Student/Professor',
+			dataType: 'string',
+			enumValues: {
+				student: "Student",
+				professor: "Professor"
+			}
 		}),
 		institute: {
 			name: 'Affiliated Institute',
