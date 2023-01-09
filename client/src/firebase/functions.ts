@@ -52,10 +52,14 @@ export interface Speaker {
 
 export interface Registration {
 	id: string
-	name: string;
-	dinner: boolean;
-	institute: string
-	email: string;
+	name: string,
+	email: string,
+	dinner: boolean,
+	position: string,
+	institute: string,
+	hasPoster: boolean,
+	subject: string,
+	description: string
 }
 
 export interface ContentReference {
@@ -136,6 +140,7 @@ export async function addRegistration(
 	name: string,
 	email: string,
 	dinner: boolean,
+	position: string,
 	institute: string,
 	hasPoster: boolean,
 	subject: string,
@@ -156,6 +161,7 @@ export async function addRegistration(
 		await setDoc(registrationRef, {
 			name,
 			dinner,
+			position,
 			email,
 			institute,
 			hasPoster,
