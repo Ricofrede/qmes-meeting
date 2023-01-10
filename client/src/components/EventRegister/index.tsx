@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { addRegistration } from '../../firebase/functions'
 import { CustomModal } from '..'
 import './styles.scss'
@@ -13,6 +13,7 @@ export default function EventRegister({ title }: EventRegisterProps) {
 	const [institute, setInstitute] = useState<string>('')
 	const [dinner, setDinner] = useState<boolean>(false)
 	const [position, setPosition] = useState<string>('')
+	const [purpose, setPurpose] = useState<string>('listener')
 	const [hasPoster, setHasPoster] = useState<boolean>(false)
 	const [subject, setSubject] = useState<string>('')
 	const [description, setDescription] = useState<string>('')
@@ -24,6 +25,7 @@ export default function EventRegister({ title }: EventRegisterProps) {
 		e.preventDefault()
 
 		if (!name || !email) return
+		if (hasPoster && (!subject || !description)) return
 
 		setSendMsg('Sending ...')
 		setSending(true)
@@ -33,6 +35,7 @@ export default function EventRegister({ title }: EventRegisterProps) {
 			email,
 			dinner,
 			position,
+			purpose,
 			institute,
 			hasPoster,
 			subject,
@@ -57,6 +60,55 @@ export default function EventRegister({ title }: EventRegisterProps) {
 		setSubject('')
 		setDescription('')
 		setSending(false)
+	}
+
+	useEffect(() => {
+		if (purpose === 'poster') {
+			setHasPoster(true)
+		} else {
+			setHasPoster(false)
+			setSubject('')
+			setDescription('')
+		}
+	}, [purpose])
+
+	function renderPurposeConditionalFields() {
+		switch (purpose) {
+			case 'poster':
+				return (
+					<>
+						<div className="mb-3">
+							<label htmlFor="event-register-input-subject" className="form-label">Poster's Subject</label>
+							<input
+								type="text"
+								className="form-control"
+								id="event-register-input-subject"
+								aria-describedby="affiliation-help"
+								required
+								value={subject}
+								onChange={(e) => setSubject(e.target.value)}
+							/>
+						</div>
+						<div className="mb-3">
+							<label htmlFor="event-register-input-description" className="form-label">Poster's Description</label>
+							<textarea
+								className="form-control"
+								id="event-register-input-description"
+								aria-describedby="affiliation-help"
+								required
+								value={description}
+								onChange={(e) => setDescription(e.target.value)}
+							/>
+						</div>
+					</>
+				)
+				break;
+			case 'listener':
+			case 'speaker':
+			default:
+				return <></>
+				break;
+		}
 	}
 
 	return (
@@ -141,37 +193,20 @@ export default function EventRegister({ title }: EventRegisterProps) {
 						<option value="professor">Professor</option>
 					</select>
 				</div>
-				<div className="mb-3 form-check">
-					<input
-						type="checkbox"
-						className="form-check-input"
-						id="event-register-input-poster"
-						checked={hasPoster}
-						onChange={(e) => setHasPoster(e.target.checked)}
-					/>
-					<label className="form-check-label" htmlFor="event-register-input-poster">Would you like to put up a work's poster?</label>
-				</div>
 				<div className="mb-3">
-					<label htmlFor="event-register-input-subject" className="form-label">Poster's Subject</label>
-					<input
-						type="text"
-						className="form-control"
-						id="event-register-input-subject"
-						aria-describedby="affiliation-help"
-						value={subject}
-						onChange={(e) => setSubject(e.target.value)}
-					/>
+					<label className="form-check-label" htmlFor="event-register-input-purpose">For what purpose are you signing up for this meeting?</label>
+					<select
+						className="form-select"
+						id="event-register-input-purpose"
+						value={purpose}
+						onChange={(e) => setPurpose(e.target.value)}
+					>
+						<option value="listener">Listener</option>
+						<option value="speaker">Speaker</option>
+						<option value="poster">Poster Submitter</option>
+					</select>
 				</div>
-				<div className="mb-3">
-					<label htmlFor="event-register-input-description" className="form-label">Poster's Description</label>
-					<textarea
-						className="form-control"
-						id="event-register-input-description"
-						aria-describedby="affiliation-help"
-						value={description}
-						onChange={(e) => setDescription(e.target.value)}
-					/>
-				</div>
+				{renderPurposeConditionalFields()}
 				<div className="row justify-content-center">
 					<button type="submit" className="btn btn-primary">Submit</button>
 				</div>

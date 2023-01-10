@@ -8,6 +8,7 @@ type Registration = {
 	name: string;
 	dinner: boolean;
 	position: string;
+	purpose: string;
 	institute: string
 	email: string;
 	hasPoster: boolean;
@@ -46,6 +47,16 @@ const registrationCollection = buildCollection<Registration>({
 			enumValues: {
 				student: "Student",
 				professor: "Professor"
+			}
+		}),
+		purpose: buildProperty({
+			name: 'Purpose',
+			description: 'If the registration is regarding a Listener, Speaker or Poster submitter.',
+			dataType: 'string',
+			enumValues: {
+				listener: "Listener",
+				speaker: "Speaker",
+				poster: "Poster"
 			}
 		}),
 		institute: {
