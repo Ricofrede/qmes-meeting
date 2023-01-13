@@ -12,11 +12,12 @@ export default function EventRegister({ title }: EventRegisterProps) {
 	const [email, setEmail] = useState<string>('')
 	const [institute, setInstitute] = useState<string>('')
 	const [dinner, setDinner] = useState<boolean>(false)
-	const [position, setPosition] = useState<string>('')
+	const [position, setPosition] = useState<string>('student')
 	const [purpose, setPurpose] = useState<string>('listener')
 	const [hasPoster, setHasPoster] = useState<boolean>(false)
 	const [subject, setSubject] = useState<string>('')
 	const [description, setDescription] = useState<string>('')
+	const [posterFile, setPosterFile] = useState<File | undefined>(undefined)
 
 	const [sending, setSending] = useState<boolean>(false)
 	const [sendMsg, setSendMsg] = useState<string>('')
@@ -39,7 +40,8 @@ export default function EventRegister({ title }: EventRegisterProps) {
 			institute,
 			hasPoster,
 			subject,
-			description
+			description,
+			posterFile
 		)
 
 		if (status) {
@@ -98,6 +100,15 @@ export default function EventRegister({ title }: EventRegisterProps) {
 								required
 								value={description}
 								onChange={(e) => setDescription(e.target.value)}
+							/>
+						</div>
+						<div className="mb-3">
+							<label htmlFor="event-register-input-file" className="form-label">Poster File</label>
+							<input
+								className="form-control"
+								type="file"
+								id="event-register-input-file"
+								onChange={(e) => setPosterFile(e.target?.files?.[0])}
 							/>
 						</div>
 					</>

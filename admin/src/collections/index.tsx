@@ -6,6 +6,7 @@ import usersCollection from "./users"
 import registrationCollection from "./registration"
 import speakersCollection from './speakers'
 import contactsCollection from "./contacts"
+import filesCollection from "./files"
 
 export default [
     pagesCollection,
@@ -15,5 +16,6 @@ export default [
     usersCollection,
     registrationCollection,
     speakersCollection,
-    contactsCollection
+    contactsCollection,
+    filesCollection
 ]
