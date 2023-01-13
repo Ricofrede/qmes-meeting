@@ -146,7 +146,6 @@ export async function addRegistration(
 	institute: string,
 	hasPoster: boolean,
 	subject: string,
-	description: string,
 	posterFile: File | undefined
 ) {
 	const now = (new Date()).getTime()
@@ -172,7 +171,6 @@ export async function addRegistration(
 			institute,
 			hasPoster,
 			subject,
-			description,
 			posterFile: posterFileRef
 		})
 
