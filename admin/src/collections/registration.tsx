@@ -13,7 +13,6 @@ type Registration = {
 	email: string;
 	hasPoster: boolean;
 	subject: string;
-	description: string;
 	posterFile: EntityReference;
 }
 
@@ -78,16 +77,10 @@ const registrationCollection = buildCollection<Registration>({
 			name: 'Poster\'s Subject',
 			dataType: 'string',
 		},
-		description: {
-			name: 'Poster\'s Description',
-			dataType: 'string',
-			columnWidth: 300,
-			multiline: true
-		},
 		posterFile: buildProperty({
 			dataType: "reference",
 			path: "files",
-			name: "Poster File",
+			name: "Poster\'s File",
 		})
 	}
 });

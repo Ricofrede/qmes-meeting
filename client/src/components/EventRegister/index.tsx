@@ -16,7 +16,6 @@ export default function EventRegister({ title }: EventRegisterProps) {
 	const [purpose, setPurpose] = useState<string>('listener')
 	const [hasPoster, setHasPoster] = useState<boolean>(false)
 	const [subject, setSubject] = useState<string>('')
-	const [description, setDescription] = useState<string>('')
 	const [posterFile, setPosterFile] = useState<File | undefined>(undefined)
 
 	const [sending, setSending] = useState<boolean>(false)
@@ -26,7 +25,7 @@ export default function EventRegister({ title }: EventRegisterProps) {
 		e.preventDefault()
 
 		if (!name || !email) return
-		if (hasPoster && (!subject || !description)) return
+		if (hasPoster && (!subject || !posterFile)) return
 
 		setSendMsg('Sending ...')
 		setSending(true)
@@ -40,7 +39,6 @@ export default function EventRegister({ title }: EventRegisterProps) {
 			institute,
 			hasPoster,
 			subject,
-			description,
 			posterFile
 		)
 
@@ -60,7 +58,7 @@ export default function EventRegister({ title }: EventRegisterProps) {
 		setInstitute('')
 		setHasPoster(false)
 		setSubject('')
-		setDescription('')
+		setPosterFile(undefined)
 		setSending(false)
 	}
 
@@ -70,7 +68,7 @@ export default function EventRegister({ title }: EventRegisterProps) {
 		} else {
 			setHasPoster(false)
 			setSubject('')
-			setDescription('')
+			setPosterFile(undefined)
 		}
 	}, [purpose])
 
@@ -92,22 +90,12 @@ export default function EventRegister({ title }: EventRegisterProps) {
 							/>
 						</div>
 						<div className="mb-3">
-							<label htmlFor="event-register-input-description" className="form-label">Poster's Description</label>
-							<textarea
-								className="form-control"
-								id="event-register-input-description"
-								aria-describedby="affiliation-help"
-								required
-								value={description}
-								onChange={(e) => setDescription(e.target.value)}
-							/>
-						</div>
-						<div className="mb-3">
-							<label htmlFor="event-register-input-file" className="form-label">Poster File</label>
+							<label htmlFor="event-register-input-file" className="form-label">Poster's File</label>
 							<input
 								className="form-control"
 								type="file"
 								id="event-register-input-file"
+								required
 								onChange={(e) => setPosterFile(e.target?.files?.[0])}
 							/>
 						</div>
