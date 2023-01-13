@@ -8,7 +8,7 @@ import {
 	setDoc,
 	updateDoc
 } from 'firebase/firestore/lite'
-import { ref, getDownloadURL } from 'firebase/storage'
+import { ref, getDownloadURL, getStorage, uploadBytes } from 'firebase/storage'
 import { db, storage } from './init'
 export interface PageContent {
 	type: string
@@ -146,7 +146,8 @@ export async function addRegistration(
 	institute: string,
 	hasPoster: boolean,
 	subject: string,
-	description: string
+	description: string,
+	posterFile: File | undefined
 ) {
 	const now = (new Date()).getTime()
 	const newRegistrationsId = `${email}`
@@ -159,6 +160,8 @@ export async function addRegistration(
 
 	const registrationRef = doc(db, 'registrations', newRegistrationsId)
 
+	const posterFileRef = await addFile(subject, posterFile)
+
 	try {
 		await setDoc(registrationRef, {
 			name,
@@ -169,7 +172,8 @@ export async function addRegistration(
 			institute,
 			hasPoster,
 			subject,
-			description
+			description,
+			posterFile: posterFileRef
 		})
 
 		return 'Thank you for your registration!'
@@ -177,6 +181,49 @@ export async function addRegistration(
 		return `Something went wrong: "${e?.message || ''}"`
 	}
 
+}
+
+export async function addFileUpload(
+	file: File | undefined
+) {
+	const now = (new Date()).getTime()
+	const newFileId = `files/${now}-${file?.name || ''}`
+
+	const storage = getStorage()
+	const storageRef = ref(storage, newFileId)
+
+	const fileBuffer = await file?.arrayBuffer()
+	if (!fileBuffer) return
+
+	try {
+		uploadBytes(storageRef, fileBuffer)
+		return newFileId
+	} catch (e: any) {
+		return false
+	}
+}
+
+export async function addFile(
+	title: string,
+	file: File | undefined
+) {
+	const now = (new Date()).getTime()
+	const newFileId = `${now}-${file?.name}`
+
+	const fileRef = doc(db, 'files', newFileId)
+
+	const fileUploadPath = await addFileUpload(file)
+
+	try {
+		await setDoc(fileRef, {
+			title,
+			file: fileUploadPath || ''
+		})
+
+		return fileRef
+	} catch (e: any) {
+		return null
+	}
 }
 
 export async function addContact(
