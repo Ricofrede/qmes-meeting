@@ -55,7 +55,7 @@ const registrationCollection = buildCollection<Registration>({
 			description: 'If the registration is regarding a Listener, Speaker or Poster submitter.',
 			dataType: 'string',
 			enumValues: {
-				listener: "Listener",
+				listener: "Participant",
 				speaker: "Speaker",
 				poster: "Poster"
 			}
