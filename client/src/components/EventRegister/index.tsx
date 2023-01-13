@@ -212,7 +212,7 @@ export default function EventRegister({ title }: EventRegisterProps) {
 						value={purpose}
 						onChange={(e) => setPurpose(e.target.value)}
 					>
-						<option value="listener">Listener</option>
+						<option value="listener">Participant</option>
 						<option value="speaker">Speaker</option>
 						<option value="poster">Poster Submitter</option>
 					</select>
