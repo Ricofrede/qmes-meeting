@@ -9,6 +9,7 @@ import {
 	updateDoc
 } from 'firebase/firestore/lite'
 import { ref, getDownloadURL, getStorage, uploadBytes } from 'firebase/storage'
+import emailjs from '@emailjs/browser'
 import { db, storage } from './init'
 export interface PageContent {
 	type: string
@@ -141,6 +142,7 @@ export async function addRegistration(
 	name: string,
 	email: string,
 	dinner: boolean,
+	accommodation: boolean,
 	position: string,
 	purpose: string,
 	institute: string,
@@ -148,7 +150,8 @@ export async function addRegistration(
 	subject: string,
 	posterFile: File | undefined
 ) {
-	const now = (new Date()).getTime()
+	const currentDateTime = new Date()
+	const now = currentDateTime.getTime()
 	const newRegistrationsId = `${email}`
 
 	const alreadyExists = await getRegistration(newRegistrationsId)
@@ -161,10 +164,14 @@ export async function addRegistration(
 
 	const posterFileRef = await addFile(subject, posterFile)
 
+	sendRegistrationConfirmationEmail(email)
+
 	try {
 		await setDoc(registrationRef, {
 			name,
+			createdDate: currentDateTime,
 			dinner,
+			accommodation,
 			position,
 			purpose,
 			email,
@@ -247,5 +254,33 @@ export async function addContact(
 	} catch (e: any) {
 		return `Something went wrong: "${e?.message || ''}"`
 	}
+}
 
+function sendRegistrationConfirmationEmail(
+	email: string
+) {
+	const templateParams = {
+		to_mail: email
+	};
+
+	// Don't waste SMTP usage
+	const env = import.meta.env.VITE_ENV
+	if (env && env === 'dev') return
+
+	const serviceId = import.meta.env.VITE_EJS_SERVICE_ID
+	const templateId = import.meta.env.VITE_EJS_TEMPLATE_ID
+	const userId = import.meta.env.VITE_EJS_USER_ID
+
+	if (!serviceId || !templateId || !userId) return
+
+	emailjs.send(
+		serviceId,
+		templateId,
+		templateParams,
+		userId
+	)
+		.then(function (response) {
+			console.log('SUCCESS!', response.status, response.text);
+		})
+		.catch(e => console.log(e))
 }

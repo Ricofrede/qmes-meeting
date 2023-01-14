@@ -12,6 +12,7 @@ export default function EventRegister({ title }: EventRegisterProps) {
 	const [email, setEmail] = useState<string>('')
 	const [institute, setInstitute] = useState<string>('')
 	const [dinner, setDinner] = useState<boolean>(false)
+	const [accommodation, setAccommodation] = useState<boolean>(false)
 	const [position, setPosition] = useState<string>('student')
 	const [purpose, setPurpose] = useState<string>('listener')
 	const [hasPoster, setHasPoster] = useState<boolean>(false)
@@ -34,6 +35,7 @@ export default function EventRegister({ title }: EventRegisterProps) {
 			name,
 			email,
 			dinner,
+			accommodation,
 			position,
 			purpose,
 			institute,
@@ -54,7 +56,9 @@ export default function EventRegister({ title }: EventRegisterProps) {
 		setName('')
 		setEmail('')
 		setDinner(false)
-		setPosition('')
+		setAccommodation(false)
+		setPosition('student')
+		setPurpose('listener')
 		setInstitute('')
 		setHasPoster(false)
 		setSubject('')
@@ -178,7 +182,17 @@ export default function EventRegister({ title }: EventRegisterProps) {
 						onChange={(e) => setDinner(e.target.checked)}
 					/>
 					<label className="form-check-label" htmlFor="event-register-input-dinner">Opt in for paid dinner from the event?</label>
-					<div id="dinner-help" className="form-text">This implies you'll be charged with a cost of R$ 50,00 for students and R$ 100,00 for professors.</div>
+					<div id="dinner-help" className="form-text">This implies you'll be charged with the costs mentioned in the text above.</div>
+				</div>
+				<div className="mb-3 form-check">
+					<input
+						type="checkbox"
+						className="form-check-input"
+						id="event-register-input-accommodation"
+						checked={accommodation}
+						onChange={(e) => setAccommodation(e.target.checked)}
+					/>
+					<label className="form-check-label" htmlFor="event-register-input-accommodation">Opt in for the event's accommodation?</label>
 				</div>
 				<div className="mb-3">
 					<label className="form-check-label" htmlFor="event-register-input-position">Are you a student or professor?</label>
