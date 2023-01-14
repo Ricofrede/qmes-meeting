@@ -9,6 +9,7 @@ import {
 	updateDoc
 } from 'firebase/firestore/lite'
 import { ref, getDownloadURL, getStorage, uploadBytes } from 'firebase/storage'
+import emailjs from '@emailjs/browser'
 import { db, storage } from './init'
 export interface PageContent {
 	type: string
@@ -161,6 +162,8 @@ export async function addRegistration(
 
 	const posterFileRef = await addFile(subject, posterFile)
 
+	sendRegistrationConfirmationEmail(email)
+
 	try {
 		await setDoc(registrationRef, {
 			name,
@@ -247,5 +250,29 @@ export async function addContact(
 	} catch (e: any) {
 		return `Something went wrong: "${e?.message || ''}"`
 	}
+}
 
+function sendRegistrationConfirmationEmail(
+	email: string
+) {
+	const templateParams = {
+		to_mail: email
+	};
+
+	const serviceId = import.meta.env.VITE_EJS_SERVICE_ID
+	const templateId = import.meta.env.VITE_EJS_TEMPLATE_ID
+	const userId = import.meta.env.VITE_EJS_USER_ID
+
+	if (!serviceId || !templateId || !userId) return
+
+	emailjs.send(
+		serviceId,
+		templateId,
+		templateParams,
+		userId
+	)
+		.then(function (response) {
+			console.log('SUCCESS!', response.status, response.text);
+		})
+		.catch(e => console.log(e))
 }
