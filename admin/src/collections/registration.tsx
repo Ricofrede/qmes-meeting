@@ -6,6 +6,7 @@ import {
 
 type Registration = {
 	name: string;
+	createdDate: Date;
 	dinner: boolean;
 	accommodation: boolean;
 	position: string;
@@ -25,6 +26,7 @@ const registrationCollection = buildCollection<Registration>({
 	group: 'Main',
 	defaultSize: "s",
 	icon: 'EventSeat',
+	initialSort: ["createdDate", "desc"],
 	permissions: ({ authController }) => ({
 		edit: true,
 		create: true,
@@ -36,6 +38,11 @@ const registrationCollection = buildCollection<Registration>({
 			validation: { required: true },
 			dataType: 'string'
 		},
+		createdDate: buildProperty({
+			dataType: "date",
+			name: "Registration Time",
+			mode: "date_time"
+		}),
 		dinner: buildProperty({
 			name: 'With Dinner?',
 			description: 'Has this person opted in for dinner?',

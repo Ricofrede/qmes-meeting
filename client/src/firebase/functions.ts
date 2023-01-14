@@ -150,7 +150,8 @@ export async function addRegistration(
 	subject: string,
 	posterFile: File | undefined
 ) {
-	const now = (new Date()).getTime()
+	const currentDateTime = new Date()
+	const now = currentDateTime.getTime()
 	const newRegistrationsId = `${email}`
 
 	const alreadyExists = await getRegistration(newRegistrationsId)
@@ -168,6 +169,7 @@ export async function addRegistration(
 	try {
 		await setDoc(registrationRef, {
 			name,
+			createdDate: currentDateTime,
 			dinner,
 			accommodation,
 			position,
