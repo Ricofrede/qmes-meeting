@@ -142,6 +142,7 @@ export async function addRegistration(
 	name: string,
 	email: string,
 	dinner: boolean,
+	accommodation: boolean,
 	position: string,
 	purpose: string,
 	institute: string,
@@ -168,6 +169,7 @@ export async function addRegistration(
 		await setDoc(registrationRef, {
 			name,
 			dinner,
+			accommodation,
 			position,
 			purpose,
 			email,
@@ -258,6 +260,10 @@ function sendRegistrationConfirmationEmail(
 	const templateParams = {
 		to_mail: email
 	};
+
+	// Don't waste SMTP usage
+	const env = import.meta.env.VITE_ENV
+	if (env && env === 'dev') return
 
 	const serviceId = import.meta.env.VITE_EJS_SERVICE_ID
 	const templateId = import.meta.env.VITE_EJS_TEMPLATE_ID

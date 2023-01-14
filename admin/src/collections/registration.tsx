@@ -7,6 +7,7 @@ import {
 type Registration = {
 	name: string;
 	dinner: boolean;
+	accommodation: boolean;
 	position: string;
 	purpose: string;
 	institute: string
@@ -38,6 +39,11 @@ const registrationCollection = buildCollection<Registration>({
 		dinner: buildProperty({
 			name: 'With Dinner?',
 			description: 'Has this person opted in for dinner?',
+			dataType: 'boolean'
+		}),
+		accommodation: buildProperty({
+			name: 'With Accommodation?',
+			description: 'Has this person opted in for accommodation?',
 			dataType: 'boolean'
 		}),
 		position: buildProperty({
