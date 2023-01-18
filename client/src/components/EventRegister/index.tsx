@@ -204,6 +204,7 @@ export default function EventRegister({ title }: EventRegisterProps) {
 					>
 						<option value="student">Student</option>
 						<option value="professor">Professor</option>
+						<option value="other">Other</option>
 					</select>
 				</div>
 				<div className="mb-3">

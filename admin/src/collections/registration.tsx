@@ -55,11 +55,12 @@ const registrationCollection = buildCollection<Registration>({
 		}),
 		position: buildProperty({
 			name: 'Position',
-			description: 'Student/Professor',
+			description: 'Student/Professor/other',
 			dataType: 'string',
 			enumValues: {
 				student: "Student",
-				professor: "Professor"
+				professor: "Professor",
+				other: "Other"
 			}
 		}),
 		purpose: buildProperty({
